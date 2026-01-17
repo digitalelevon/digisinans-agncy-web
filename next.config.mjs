@@ -13,7 +13,7 @@ const nextConfig = {
     },
     compress: true,
     experimental: {
-        optimizePackageImports: ['lucide-react', 'framer-motion'],
+        optimizePackageImports: ['lucide-react', 'framer-motion', '@supabase/ssr', '@supabase/supabase-js'],
         scrollRestoration: true,
     },
     poweredByHeader: false,
