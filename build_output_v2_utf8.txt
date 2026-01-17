@@ -1,0 +1,46 @@
+﻿
+> digisinans-agency@0.0.0 build
+> node node_modules/next/dist/bin/next build
+
+   Γû▓ Next.js 15.1.4
+   - Environments: .env.local
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/15) ...
+   Generating static pages (3/15) 
+   Generating static pages (7/15) 
+   Generating static pages (11/15) 
+ Γ£ô Generating static pages (15/15)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+Γöî Γùï /                                    5.92 kB         121 kB
+Γö£ Γùï /_not-found                          151 B           106 kB
+Γö£ Γùï /about                               2.78 kB         109 kB
+Γö£ Γùï /admin                               151 B           106 kB
+Γö£ Γùï /admin/dashboard                     17.5 kB         181 kB
+Γö£ Γùï /admin/login                         2.89 kB         162 kB
+Γö£ ╞Æ /api/contact                         151 B           106 kB
+Γö£ Γùï /blog                                4.79 kB         120 kB
+Γö£ ╞Æ /blog/[slug]                         189 B           115 kB
+Γö£ Γùï /contact                             5.94 kB         165 kB
+Γö£ Γùï /robots.txt                          0 B                0 B
+Γö£ Γùï /services                            9.29 kB         119 kB
+Γö£ Γùï /sitemap.xml                         0 B                0 B
+Γö£ Γùï /work                                4.06 kB         119 kB
+Γöö ╞Æ /work/[id]                           189 B           115 kB
++ First Load JS shared by all            106 kB
+  Γö£ chunks/1517-b2f3bbf9c011e4fc.js      50.5 kB
+  Γö£ chunks/4bd1b696-4a9f6ef78b4cd29a.js  52.9 kB
+  Γöö other shared chunks (total)          2.42 kB
+
+
+╞Æ Middleware                             78.1 kB
+
+Γùï  (Static)   prerendered as static content
+╞Æ  (Dynamic)  server-rendered on demand
+

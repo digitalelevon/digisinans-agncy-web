@@ -1,0 +1,51 @@
+﻿
+> digisinans-agency@0.0.0 lint
+> node node_modules/next/dist/bin/next lint
+
+node.exe : 
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
+    + CategoryInfo          
+    : NotSpecified: (:Stri  
+  ng) [], RemoteException
+    + FullyQualifiedErrorId 
+    : NativeCommandError
+ 
+./app/admin/dashboard/BlogMa
+nager.tsx
+120:98  Error: `'` can be 
+escaped with `&apos;`, 
+`&lsquo;`, `&#39;`, 
+`&rsquo;`.  
+react/no-unescaped-entities
+
+./app/admin/dashboard/Chatbo
+tLeadsManager.tsx
+51:8  Warning: React Hook 
+useEffect has a missing 
+dependency: 'fetchLeads'. 
+Either include it or remove 
+the dependency array.  
+react-hooks/exhaustive-deps
+
+./app/admin/dashboard/Inquir
+yManager.tsx
+54:8  Warning: React Hook 
+useEffect has a missing 
+dependency: 
+'fetchInquiries'. Either 
+include it or remove the 
+dependency array.  
+react-hooks/exhaustive-deps
+
+info  - Need to disable 
+some ESLint rules? Learn 
+more here: https://nextjs.or
+g/docs/app/api-reference/con
+fig/eslint#disabling-rules

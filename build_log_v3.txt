@@ -1,0 +1,67 @@
+
+> digisinans-agency@0.0.0 build
+> node node_modules/next/dist/bin/next build
+
+   ▲ Next.js 15.1.4
+   - Environments: .env.local
+
+   Creating an optimized production build ...
+ ⚠ Found lockfile missing swc dependencies, patching...
+ ⚠ Found lockfile missing swc dependencies, patching...
+ ⚠ Found lockfile missing swc dependencies, patching...
+Failed to compile.
+
+./app/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/globals.css
+Error: Missing field `negated` on ScannerOptions.sources
+    at Object.Once (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\@tailwindcss\postcss\dist\index.js:8:4164)
+    at async LazyResult.runAsync (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\node_modules\postcss\lib\lazy-result.js:261:11)
+    at async Span.traceAsyncFn (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\trace\trace.js:153:20)
+    at async C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js:55:22
+    at async Span.traceAsyncFn (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\trace\trace.js:153:20)
+
+Import trace for requested module:
+./app/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/globals.css
+./app/globals.css
+
+./app/globals.css
+Error: Missing field `negated` on ScannerOptions.sources
+    at Object.Once (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\@tailwindcss\postcss\dist\index.js:8:4164)
+    at async LazyResult.runAsync (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\node_modules\postcss\lib\lazy-result.js:261:11)
+    at async Span.traceAsyncFn (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\trace\trace.js:153:20)
+    at async C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js:55:22
+    at async Span.traceAsyncFn (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\trace\trace.js:153:20)
+    at tryRunOrWebpackError (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\compiled\webpack\bundle5.js:28:314962)
+    at __webpack_require_module__ (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\compiled\webpack\bundle5.js:28:131434)
+    at __nested_webpack_require_161179__ (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\compiled\webpack\bundle5.js:28:130872)
+    at C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\compiled\webpack\bundle5.js:28:131723
+    at symbolIterator (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\compiled\neo-async\async.js:1:14444)
+    at done (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\compiled\neo-async\async.js:1:14824)
+    at Hook.eval [as callAsync] (eval at create (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\compiled\webpack\bundle5.js:13:9218), <anonymous>:15:1)
+    at Hook.CALL_ASYNC_DELEGATE [as _callAsync] (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\compiled\webpack\bundle5.js:13:6372)
+    at C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\compiled\webpack\bundle5.js:28:130593
+    at symbolIterator (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\compiled\neo-async\async.js:1:14402)
+-- inner error --
+Error: Missing field `negated` on ScannerOptions.sources
+    at Object.Once (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\@tailwindcss\postcss\dist\index.js:8:4164)
+    at async LazyResult.runAsync (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\node_modules\postcss\lib\lazy-result.js:261:11)
+    at async Span.traceAsyncFn (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\trace\trace.js:153:20)
+    at async C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js:55:22
+    at async Span.traceAsyncFn (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\trace\trace.js:153:20)
+    at Object.<anonymous> (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[13].oneOf[10].use[2]!C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[13].oneOf[10].use[3]!C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\app\globals.css:1:7)
+    at C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\compiled\webpack\bundle5.js:28:955548
+    at Hook.eval [as call] (eval at create (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\compiled\webpack\bundle5.js:13:8996), <anonymous>:7:1)
+    at Hook.CALL_DELEGATE [as _call] (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\compiled\webpack\bundle5.js:13:6266)
+    at C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\compiled\webpack\bundle5.js:28:131467
+    at tryRunOrWebpackError (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\compiled\webpack\bundle5.js:28:314916)
+    at __webpack_require_module__ (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\compiled\webpack\bundle5.js:28:131434)
+    at __nested_webpack_require_161179__ (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\compiled\webpack\bundle5.js:28:130872)
+    at C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\compiled\webpack\bundle5.js:28:131723
+    at symbolIterator (C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\compiled\neo-async\async.js:1:14444)
+
+Generated code for C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[13].oneOf[10].use[2]!C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[13].oneOf[10].use[3]!C:\Users\user\Downloads\digisinans-_-elite-digital-marketing-&-performance-agency\app\globals.css
+
+Import trace for requested module:
+./app/globals.css
+
+
+> Build failed because of webpack errors
