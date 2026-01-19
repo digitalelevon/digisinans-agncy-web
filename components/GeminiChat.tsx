@@ -19,21 +19,25 @@ export default function GeminiChat() {
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if (isOpen) {
-            const handleBodyScroll = () => {
-                if (window.innerWidth < 640) {
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    document.body.style.overflow = 'unset';
-                }
-            };
-            handleBodyScroll();
-            window.addEventListener('resize', handleBodyScroll);
-            return () => {
-                window.removeEventListener('resize', handleBodyScroll);
-                document.body.style.overflow = 'unset';
-            };
+        if (!isOpen) {
+            document.body.style.overflow = 'unset';
+            return;
         }
+
+        const handleBodyScroll = () => {
+            if (window.innerWidth < 640) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'unset';
+            }
+        };
+
+        handleBodyScroll();
+        window.addEventListener('resize', handleBodyScroll);
+        return () => {
+            window.removeEventListener('resize', handleBodyScroll);
+            document.body.style.overflow = 'unset';
+        };
     }, [isOpen]);
 
     const scrollToBottom = () => {
@@ -126,7 +130,7 @@ export default function GeminiChat() {
                 }`}>
 
                 {/* Header */}
-                <header className="px-6 sm:px-8 py-5 sm:py-6 bg-blue-600 text-white flex items-center justify-between pt-[env(safe-area-inset-top,20px)] sm:pt-6">
+                <header className="shrink-0 px-6 sm:px-8 py-5 sm:py-6 bg-blue-600 text-white flex items-center justify-between pt-[env(safe-area-inset-top,20px)] sm:pt-6">
                     <div>
                         <div className="flex items-center gap-2 mb-1">
                             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -146,7 +150,7 @@ export default function GeminiChat() {
                 </header>
 
                 {/* Messages Area - Scrollable */}
-                <div className="flex-grow overflow-y-auto p-6 space-y-4 custom-scrollbar bg-zinc-50/50 pb-8">
+                <div className="flex-1 overflow-y-auto overscroll-contain p-6 space-y-4 custom-scrollbar bg-zinc-50/50">
                     {messages.length === 0 && (
                         <div className="text-center py-12 px-8">
                             <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-5 text-blue-600 shadow-sm">
@@ -182,7 +186,7 @@ export default function GeminiChat() {
                 </div>
 
                 {/* Input Area - Sticky at Bottom */}
-                <div className="mt-auto p-4 sm:p-6 bg-white border-t border-zinc-100 pb-[max(1rem,env(safe-area-inset-bottom,1rem))] sm:pb-6">
+                <div className="sticky bottom-0 shrink-0 p-4 sm:p-6 bg-white border-t border-zinc-100 pb-[env(safe-area-inset-bottom)] sm:pb-6">
                     <form onSubmit={handleSendMessage} className="relative flex items-center gap-2 sm:gap-3">
                         <input
                             type="text"
@@ -194,7 +198,7 @@ export default function GeminiChat() {
                         <button
                             type="submit"
                             disabled={!input.trim() || loading}
-                            className="bg-zinc-900 text-white p-3.5 rounded-xl hover:bg-blue-600 disabled:opacity-50 transition-all active:scale-95 shadow-lg flex items-center justify-center"
+                            className="bg-zinc-900 text-white p-3.5 rounded-xl hover:bg-blue-600 disabled:opacity-50 transition-all active:scale-95 shadow-lg flex items-center justify-center shrink-0"
                         >
                             <Send size={20} />
                         </button>
