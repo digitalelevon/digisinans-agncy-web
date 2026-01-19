@@ -154,13 +154,13 @@ export default function GeminiChat() {
                 </header>
 
                 {/* Messages Area - Scrollable Flex-1 */}
-                <div className="flex-1 overflow-y-auto overscroll-contain p-4 sm:p-6 space-y-6 custom-scrollbar bg-zinc-50/50 relative">
+                <div className="flex-1 overflow-y-auto overscroll-contain p-3 sm:p-6 space-y-4 custom-scrollbar bg-zinc-50/50 relative">
                     {messages.length === 0 && (
-                        <div className="text-center py-12 px-8 animate-in fade-in zoom-in-95 duration-500">
-                            <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-blue-600 shadow-sm ring-4 ring-blue-50/50">
-                                <Bot size={32} />
+                        <div className="text-center py-8 px-6 animate-in fade-in zoom-in-95 duration-500 mt-4">
+                            <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-blue-600 shadow-sm ring-4 ring-blue-50/50">
+                                <Bot size={28} />
                             </div>
-                            <h4 className="text-zinc-900 font-black text-sm uppercase tracking-tight mb-3">Tactical Bot Online</h4>
+                            <h4 className="text-zinc-900 font-black text-sm uppercase tracking-tight mb-2">Tactical Bot Online</h4>
                             <p className="text-zinc-500 text-xs font-medium leading-relaxed max-w-[240px] mx-auto">
                                 Our strategic AI is ready to analyze your market position. Ask about SEO, Performance, or Branding.
                             </p>
@@ -168,15 +168,15 @@ export default function GeminiChat() {
                     )}
 
                     {messages.map((msg, i) => (
-                        <div key={i} className={`flex gap-3 ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-in slide-in-from-bottom-2 duration-300`}>
+                        <div key={i} className={`flex gap-2.5 ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-in slide-in-from-bottom-2 duration-300`}>
                             {msg.role === 'model' && (
-                                <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center shrink-0 border border-blue-200 mt-1">
+                                <div className="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center shrink-0 border border-blue-200 mt-0.5">
                                     <Bot size={14} className="text-blue-600" />
                                 </div>
                             )}
 
-                            <div className={`max-w-[75%] px-5 py-3.5 rounded-2xl text-[13px] sm:text-sm font-medium leading-relaxed shadow-sm ${msg.role === 'user'
-                                ? 'bg-zinc-900 text-white rounded-br-none shadow-xl'
+                            <div className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-[13px] sm:text-sm font-medium leading-relaxed shadow-sm ${msg.role === 'user'
+                                ? 'bg-zinc-900 text-white rounded-br-none shadow-md'
                                 : 'bg-white text-zinc-600 border border-zinc-100 rounded-bl-none'
                                 }`}>
                                 {msg.text}
@@ -185,11 +185,11 @@ export default function GeminiChat() {
                     ))}
 
                     {loading && (
-                        <div className="flex gap-3 justify-start animate-pulse">
-                            <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center shrink-0 border border-blue-200 mt-1">
+                        <div className="flex gap-2.5 justify-start animate-pulse">
+                            <div className="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center shrink-0 border border-blue-200 mt-0.5">
                                 <Bot size={14} className="text-blue-600" />
                             </div>
-                            <div className="bg-white px-5 py-4 rounded-2xl rounded-bl-none border border-zinc-100 shadow-sm flex items-center gap-1.5">
+                            <div className="bg-white px-4 py-3 rounded-2xl rounded-bl-none border border-zinc-100 shadow-sm flex items-center gap-1.5">
                                 <span className="w-1.5 h-1.5 bg-zinc-400 rounded-full animate-[bounce_1s_infinite_0ms]" />
                                 <span className="w-1.5 h-1.5 bg-zinc-400 rounded-full animate-[bounce_1s_infinite_200ms]" />
                                 <span className="w-1.5 h-1.5 bg-zinc-400 rounded-full animate-[bounce_1s_infinite_400ms]" />
@@ -200,21 +200,21 @@ export default function GeminiChat() {
                 </div>
 
                 {/* Input Area - Sticky at Bottom */}
-                <div className="sticky bottom-0 z-50 shrink-0 p-4 sm:p-6 bg-white border-t border-zinc-100 pb-[max(1rem,env(safe-area-inset-bottom))] sm:pb-6">
-                    <form onSubmit={handleSendMessage} className="relative flex items-center gap-2 sm:gap-3">
+                <div className="sticky bottom-0 z-50 shrink-0 bg-white border-t border-zinc-100 pb-[max(0.5rem,env(safe-area-inset-bottom))] p-2 sm:p-4 sm:pb-6">
+                    <form onSubmit={handleSendMessage} className="relative flex items-center gap-2">
                         <input
                             type="text"
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
                             placeholder="Message strategist..."
-                            className="flex-grow px-5 py-3.5 sm:px-6 sm:py-4 bg-zinc-50 border border-zinc-100 rounded-2xl text-sm font-medium text-zinc-900 focus:bg-white focus:border-blue-600 outline-none transition-all pr-12"
+                            className="flex-grow px-4 py-2.5 bg-zinc-100 border-none rounded-full text-[15px] font-medium text-zinc-900 focus:bg-white focus:ring-1 focus:ring-blue-600 outline-none transition-all placeholder:text-zinc-500"
                         />
                         <button
                             type="submit"
                             disabled={!input.trim() || loading}
-                            className="bg-zinc-900 text-white p-3.5 rounded-xl hover:bg-blue-600 disabled:opacity-50 transition-all active:scale-95 shadow-lg flex items-center justify-center shrink-0"
+                            className="bg-blue-600 text-white w-10 h-10 sm:w-11 sm:h-11 rounded-full hover:bg-blue-700 disabled:opacity-50 transition-all active:scale-90 shadow-md flex items-center justify-center shrink-0"
                         >
-                            <Send size={20} />
+                            <Send size={18} className="translate-x-0.5" />
                         </button>
                     </form>
                 </div>
