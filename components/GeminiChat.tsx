@@ -18,6 +18,24 @@ export default function GeminiChat() {
     const [leadId, setLeadId] = useState<string | null>(null);
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
+    useEffect(() => {
+        if (isOpen) {
+            const handleBodyScroll = () => {
+                if (window.innerWidth < 640) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = 'unset';
+                }
+            };
+            handleBodyScroll();
+            window.addEventListener('resize', handleBodyScroll);
+            return () => {
+                window.removeEventListener('resize', handleBodyScroll);
+                document.body.style.overflow = 'unset';
+            };
+        }
+    }, [isOpen]);
+
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     };
@@ -38,7 +56,6 @@ export default function GeminiChat() {
         setMessages(newMessages);
         setLoading(true);
 
-        // Convert to Gemini history format
         const history = newMessages.map(msg => ({
             role: msg.role === 'user' ? 'user' : 'model',
             parts: [{ text: msg.text }]
@@ -52,7 +69,6 @@ export default function GeminiChat() {
             const botResponse = result.text;
             setMessages(prev => [...prev, { role: 'model', text: botResponse }]);
 
-            // Enhanced Lead Detection Logic for the new stepped flow
             const phoneMatch = userMessage.match(/(\+?\d[\d\s-]{8,}\d)/);
             const emailMatch = userMessage.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
             const services = ['SEO', 'Branding', 'Performance Marketing', 'Social Media', 'Web Design', 'Ads', 'Marketing'];
@@ -74,7 +90,6 @@ export default function GeminiChat() {
                     setLeadId(data[0].id);
                 }
             } else if (leadId) {
-                // Incremental updates
                 const updates: any = {};
                 if (emailMatch) updates.email = emailMatch[0];
                 if (foundService) updates.service_type = foundService;
@@ -90,10 +105,10 @@ export default function GeminiChat() {
 
     return (
         <>
-            {/* Chat Toggle Button - Robust Square Design with Nice Curves */}
+            {/* Chat Toggle Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`fixed bottom-6 right-6 z-[9999] w-14 h-14 sm:w-16 sm:h-16 rounded-2xl sm:rounded-[1.5rem] flex items-center justify-center shadow-[0_20px_50px_rgba(37,99,235,0.3)] border-2 border-white/20 transition-all duration-500 active:scale-95 ${isOpen ? 'bg-zinc-900 rotate-180' : 'bg-blue-600 hover:bg-blue-700'
+                className={`fixed bottom-6 right-6 z-[10002] w-14 h-14 sm:w-16 sm:h-16 rounded-2xl sm:rounded-[1.5rem] flex items-center justify-center shadow-[0_20px_50px_rgba(37,99,235,0.3)] border-2 border-white/20 transition-all duration-500 active:scale-95 ${isOpen ? 'bg-zinc-900 rotate-180 opacity-0 pointer-events-none scale-0 sm:opacity-100 sm:pointer-events-auto sm:scale-100' : 'bg-blue-600 hover:bg-blue-700'
                     } text-white group`}
                 aria-label="Toggle Chat"
             >
@@ -106,11 +121,12 @@ export default function GeminiChat() {
                 )}
             </button>
 
-            {/* Chat Window */}
-            <div className={`fixed bottom-24 right-6 z-[9999] w-[calc(100vw-3rem)] sm:w-[400px] h-[500px] bg-white/95 backdrop-blur-xl border border-zinc-200 rounded-[2.5rem] shadow-2xl flex flex-col overflow-hidden transition-all duration-500 origin-bottom-right ${isOpen ? 'scale-100 opacity-100 translate-y-0' : 'scale-75 opacity-0 translate-y-10 pointer-events-none'
+            {/* Chat Window Container */}
+            <div className={`fixed inset-0 sm:inset-auto sm:bottom-24 sm:right-6 z-[10001] w-full sm:w-[400px] h-[100dvh] sm:h-[600px] bg-white sm:bg-white/95 sm:backdrop-blur-xl sm:border sm:border-zinc-200 sm:rounded-[2.5rem] sm:shadow-2xl flex flex-col overflow-hidden transition-all duration-500 origin-bottom-right ${isOpen ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-10 opacity-0 scale-95 pointer-events-none'
                 }`}>
+
                 {/* Header */}
-                <header className="px-8 py-6 bg-blue-600 text-white flex items-center justify-between">
+                <header className="px-6 sm:px-8 py-5 sm:py-6 bg-blue-600 text-white flex items-center justify-between pt-[env(safe-area-inset-top,20px)] sm:pt-6">
                     <div>
                         <div className="flex items-center gap-2 mb-1">
                             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -118,25 +134,34 @@ export default function GeminiChat() {
                         </div>
                         <p className="text-[10px] font-bold text-blue-100 uppercase tracking-tight">DIGISINANS Intelligence Hub</p>
                     </div>
+                    {/* Explicit Close for Mobile */}
+                    <button
+                        onClick={() => setIsOpen(false)}
+                        className="sm:hidden p-2 hover:bg-white/10 rounded-full transition-colors"
+                        aria-label="Close Chat"
+                    >
+                        <X size={24} />
+                    </button>
+                    {/* Minimize toggle for desktop is implied by the main button, which we keep clickable if visible */}
                 </header>
 
-                {/* Messages Area */}
-                <div className="flex-grow overflow-y-auto p-6 space-y-4 custom-scrollbar bg-zinc-50/50">
+                {/* Messages Area - Scrollable */}
+                <div className="flex-grow overflow-y-auto p-6 space-y-4 custom-scrollbar bg-zinc-50/50 pb-8">
                     {messages.length === 0 && (
-                        <div className="text-center py-10 px-8">
-                            <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-blue-600">
-                                <Bot size={24} />
+                        <div className="text-center py-12 px-8">
+                            <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-5 text-blue-600 shadow-sm">
+                                <Bot size={28} />
                             </div>
                             <h4 className="text-zinc-900 font-black text-sm uppercase tracking-tight mb-2">Tactical Bot Online</h4>
-                            <p className="text-zinc-500 text-xs font-medium leading-relaxed">
+                            <p className="text-zinc-500 text-xs font-medium leading-relaxed max-w-[240px] mx-auto">
                                 Our strategic AI is ready to analyze your market position. Ask about SEO, Performance, or Branding.
                             </p>
                         </div>
                     )}
 
                     {messages.map((msg, i) => (
-                        <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                            <div className={`max-w-[85%] px-5 py-3.5 rounded-2xl text-sm font-medium leading-relaxed ${msg.role === 'user'
+                        <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-in slide-in-from-bottom-2 duration-300`}>
+                            <div className={`max-w-[85%] px-5 py-3.5 rounded-2xl text-[13px] sm:text-sm font-medium leading-relaxed ${msg.role === 'user'
                                 ? 'bg-zinc-900 text-white rounded-br-none shadow-xl'
                                 : 'bg-white text-zinc-600 border border-zinc-100 rounded-bl-none shadow-sm'
                                 }`}>
@@ -156,25 +181,25 @@ export default function GeminiChat() {
                     <div ref={messagesEndRef} />
                 </div>
 
-                {/* Input Area */}
-                <form onSubmit={handleSendMessage} className="p-6 bg-white border-t border-zinc-100">
-                    <div className="relative flex items-center gap-3">
+                {/* Input Area - Sticky at Bottom */}
+                <div className="mt-auto p-4 sm:p-6 bg-white border-t border-zinc-100 pb-[max(1rem,env(safe-area-inset-bottom,1rem))] sm:pb-6">
+                    <form onSubmit={handleSendMessage} className="relative flex items-center gap-2 sm:gap-3">
                         <input
                             type="text"
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
-                            placeholder="Type your strategic inquiry..."
-                            className="flex-grow px-6 py-4 bg-zinc-50 border border-zinc-100 rounded-2xl text-sm font-medium text-zinc-900 focus:bg-white focus:border-blue-600 outline-none transition-all pr-14"
+                            placeholder="Message strategist..."
+                            className="flex-grow px-5 py-3.5 sm:px-6 sm:py-4 bg-zinc-50 border border-zinc-100 rounded-2xl text-sm font-medium text-zinc-900 focus:bg-white focus:border-blue-600 outline-none transition-all pr-12"
                         />
                         <button
                             type="submit"
                             disabled={!input.trim() || loading}
                             className="bg-zinc-900 text-white p-3.5 rounded-xl hover:bg-blue-600 disabled:opacity-50 transition-all active:scale-95 shadow-lg flex items-center justify-center"
                         >
-                            <Send size={18} />
+                            <Send size={20} />
                         </button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </>
     );

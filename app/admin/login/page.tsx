@@ -95,7 +95,7 @@ export default function LoginPage() {
                                             onChange={(e) => setEmail(e.target.value)}
                                             required
                                             className="w-full pl-14 pr-6 py-5 bg-zinc-50 border border-zinc-50 rounded-[2rem] focus:border-indigo-600 focus:bg-white outline-none transition-all text-zinc-900 font-bold"
-                                            placeholder="ops@digisinans.com"
+                                            placeholder="ops@digisinans.in"
                                         />
                                     </div>
                                 </div>

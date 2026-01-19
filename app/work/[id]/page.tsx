@@ -20,6 +20,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
         title: `${study.title} | Case Study | DIGISINANS`,
         description: `Tactical report for ${study.client}: ${study.result_metric} growth in ${study.service_category}.`,
+        alternates: {
+            canonical: `/work/${id}`,
+        },
+        openGraph: {
+            title: study.title,
+            description: `Tactical report for ${study.client}: ${study.result_metric} growth in ${study.service_category}.`,
+            images: study.cover_image ? [{ url: study.cover_image }] : [],
+            type: 'article',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: study.title,
+            description: `Tactical report for ${study.client}: ${study.result_metric} growth in ${study.service_category}.`,
+            images: study.cover_image ? [study.cover_image] : [],
+        },
     };
 }
 

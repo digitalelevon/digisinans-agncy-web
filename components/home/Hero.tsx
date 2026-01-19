@@ -25,13 +25,17 @@ const Hero = () => {
                                 <span className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] text-indigo-900/70 font-sans">Verified Performance Powerhouse</span>
                             </div>
 
-                            <h1 className="text-4xl xs:text-5xl md:text-7xl lg:text-8xl xl:text-[100px] font-black leading-tight md:leading-[0.9] tracking-tighter text-zinc-900 mb-6 md:mb-10 animate-in fade-in slide-in-from-left-8 duration-1000" suppressHydrationWarning>
+                            <h1 className="text-4xl xs:text-5xl md:text-7xl lg:text-8xl xl:text-[100px] font-black leading-tight md:leading-[0.9] tracking-tighter text-zinc-900 mb-4 animate-in fade-in slide-in-from-left-8 duration-1000" suppressHydrationWarning>
                                 Engineering <br />
                                 <span className="text-indigo-600 block transition-transform hover:translate-x-2 duration-500 cursor-default italic font-serif" suppressHydrationWarning>Digital Echoes.</span>
                             </h1>
 
+                            <h2 className="text-[11px] md:text-sm font-black uppercase tracking-[0.25em] text-indigo-600/80 mb-10 animate-in fade-in slide-in-from-left-10 duration-1000 delay-100">
+                                Best AI Integrated Digital Marketing Agency in Malappuram, Kerala
+                            </h2>
+
                             <p className="text-base md:text-2xl text-zinc-500 font-medium leading-relaxed mb-10 md:mb-12 max-w-2xl animate-in fade-in slide-in-from-left-12 duration-1000 delay-200" suppressHydrationWarning>
-                                We are the <span className="text-zinc-900 font-black border-b-2 border-indigo-100">Best AI Integrated Digital Marketing Agency in Malappuram, Kerala</span>, scaling global brands through elite performance frameworks and high-end design.
+                                Scaling global brands through elite performance frameworks, high-end design, and AI-driven precision. The best digital partner in Kerala.
                             </p>
 
                             <div className="flex flex-col sm:flex-row items-center gap-5 mb-16 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">

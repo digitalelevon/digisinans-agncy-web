@@ -4,23 +4,34 @@ import HomeClient from './HomeClient';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Best Digital Marketing Agency in Kerala | DIGISINANS",
-    description: "DIGISINANS is the best digital marketing agency in Kerala, offering elite SEO, performance marketing, and branding services. Scale your brand with Kerala's top digital experts.",
+    title: "Best AI Integrated Digital Marketing Agency in Malappuram, Kerala | DIGISINANS",
+    description: "DIGISINANS is the best AI integrated digital marketing agency in Malappuram, Kerala. We scale global brands with elite SEO, performance marketing, and high-end branding.",
     keywords: [
-        "best digital marketing agency in kerala",
-        "digital marketing agency in kerala",
-        "digital marketing services kerala",
-        "seo agency kerala",
-        "performance marketing kerala",
-        "branding agency in kerala",
-        "best seo company in kerala",
-        "digital marketing company malappuram"
+        "Best AI Integrated Digital Marketing Agency in Malappuram, Kerala",
+        "AI Integrated Marketing Malappuram",
+        "Best Digital Marketing Agency in Kerala",
+        "Branding Agency Tirur",
+        "SEO Expert Malappuram",
+        "Digital Marketing services Kerala",
+        "Digisinans"
     ],
+    alternates: {
+        canonical: '/',
+    },
     openGraph: {
-        title: "Best Digital Marketing Agency in Kerala | DIGISINANS",
-        description: "Scale your brand with Kerala's elite digital marketing agency. Elite SEO, branding, and performance marketing.",
+        title: "Best AI Integrated Digital Marketing Agency in Malappuram, Kerala | DIGISINANS",
+        description: "DIGISINANS is the best AI integrated digital marketing agency in Malappuram, Kerala. Scale your brand with elite SEO and performance marketing.",
+        url: "https://digisinans.in",
+        siteName: "Digisinans",
+        locale: "en_US",
+        type: "website",
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: "Best AI Integrated Digital Marketing Agency in Malappuram, Kerala | DIGISINANS",
+        description: "Scale your brand with the best AI integrated digital marketing agency in Malappuram, Kerala. Elite SEO and performance marketing.",
         images: ['/og-image.jpg'],
-    }
+    },
 };
 
 import { getServices, getCaseStudies, getBlogs } from '@/lib/supabase-data';

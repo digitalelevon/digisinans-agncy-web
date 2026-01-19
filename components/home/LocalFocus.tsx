@@ -22,13 +22,24 @@ const LocalFocus = () => {
                         </div>
 
                         <h2 className="text-[2.2rem] xs:text-[2.8rem] sm:text-6xl md:text-7xl lg:text-8xl font-black mb-8 md:mb-10 leading-[0.9] tracking-tighter text-white" suppressHydrationWarning>
-                            Kerala&apos;s Leading <br />
-                            <span className="text-indigo-400 block transition-transform hover:translate-x-2 duration-500 cursor-default italic font-serif mt-2" suppressHydrationWarning>Digital Authority.</span>
+                            Your Leading <br />
+                            <span className="text-indigo-400 block transition-transform hover:translate-x-2 duration-500 cursor-default italic font-serif mt-2" suppressHydrationWarning>AI integrated digital marketing agency in Malappuram.</span>
                         </h2>
 
-                        <p className="text-lg md:text-xl text-zinc-400 font-medium leading-relaxed mb-12 max-w-xl">
-                            Based in <span className="text-white font-bold">Tirur, Malappuram</span>, we are the <span className="text-white font-bold underline decoration-indigo-500 underline-offset-4">best digital marketing agency in Tirur</span> and Kerala, bridging the gap between local enterprise and global standards.
+                        <p className="text-lg md:text-xl text-zinc-400 font-medium leading-relaxed mb-8 max-w-xl">
+                            Based in <span className="text-white font-bold">Tirur, Malappuram</span>, we are the <span className="text-white font-bold underline decoration-indigo-500 underline-offset-4">best digital marketing agency in Kerala</span>, bridging the gap between local enterprise and global standards through AI-driven precision.
                         </p>
+
+                        <div className="mb-12">
+                            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-indigo-400 mb-4">Tactical Service Areas</h3>
+                            <div className="flex flex-wrap gap-2">
+                                {['Malappuram', 'Tirur', 'Manjeri', 'Perinthalmanna', 'Kerala'].map((area) => (
+                                    <span key={area} className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-[10px] font-black uppercase tracking-widest text-zinc-300 hover:text-white hover:border-indigo-500/50 transition-colors cursor-default">
+                                        {area}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
                             <div className="p-8 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/[0.08] transition-all group">

@@ -62,7 +62,7 @@ const CTASection = () => {
     return (
         <section className="py-20 md:py-32 bg-white">
             <div className="container mx-auto px-5 md:px-6">
-                <div className="bg-zinc-900 rounded-[3rem] md:rounded-[5rem] p-10 md:p-32 text-white text-center relative overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] group">
+                <div className="bg-zinc-900 rounded-[3rem] md:rounded-[5rem] px-6 py-16 md:p-32 text-white text-center relative overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] group">
                     {/* Animated Background */}
                     <div className="absolute inset-0 z-0">
                         <div className="absolute top-[-20%] right-[-10%] w-[70%] h-[70%] bg-indigo-600/30 rounded-full blur-[120px] group-hover:bg-indigo-600/40 transition-colors duration-1000" />
@@ -71,12 +71,12 @@ const CTASection = () => {
                     </div>
 
                     <div className="relative z-10 max-w-5xl mx-auto">
-                        <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-md border border-white/10 text-indigo-300 rounded-full mb-12 reveal-on-scroll shadow-xl" suppressHydrationWarning>
-                            <span className="w-2.5 h-2.5 bg-indigo-500 rounded-full animate-pulse shadow-[0_0_15px_rgba(99,102,241,0.5)]" />
-                            <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-white">Status: Ready for Transmission</span>
+                        <div className="inline-flex items-center gap-3 px-4 py-2 md:px-6 md:py-3 bg-white/10 backdrop-blur-md border border-white/10 text-indigo-300 rounded-full mb-8 md:mb-12 reveal-on-scroll shadow-xl" suppressHydrationWarning>
+                            <span className="w-2 md:w-2.5 h-2 md:h-2.5 bg-indigo-500 rounded-full animate-pulse shadow-[0_0_15px_rgba(99,102,241,0.5)]" />
+                            <span className="text-[9px] md:text-xs font-black uppercase tracking-[0.3em] text-white">Status: Ready for Transmission</span>
                         </div>
 
-                        <h2 className="text-5xl md:text-8xl lg:text-[110px] font-black mb-12 leading-[0.85] tracking-tighter reveal-on-scroll delay-100 mix-blend-overlay opacity-90" suppressHydrationWarning>
+                        <h2 className="text-4xl md:text-8xl lg:text-[110px] font-black mb-8 md:mb-12 leading-[0.9] md:leading-[0.85] tracking-tighter reveal-on-scroll delay-100 mix-blend-overlay opacity-95 md:opacity-90" suppressHydrationWarning>
                             Architect Your <br className="hidden md:block" />
                             <span className="text-white italic font-serif relative inline-block opacity-100 mix-blend-normal">
                                 Digital Legacy.
@@ -86,17 +86,17 @@ const CTASection = () => {
                             </span>
                         </h2>
 
-                        <p className="text-xl md:text-3xl text-zinc-400 font-medium mb-16 max-w-3xl mx-auto leading-relaxed reveal-on-scroll delay-200">
+                        <p className="text-lg md:text-3xl text-zinc-300 font-medium mb-12 md:mb-16 max-w-3xl mx-auto leading-relaxed reveal-on-scroll delay-200">
                             Partner with <span className="text-white font-bold">DIGISINANS</span> to transform your brand from existent to exceptional through high-performance strategy.
                         </p>
 
                         <div className="flex justify-center reveal-on-scroll delay-300" suppressHydrationWarning>
                             <Link
                                 href="/contact"
-                                className="group/btn relative px-16 py-8 bg-white text-zinc-900 text-2xl font-black rounded-full hover:bg-indigo-600 hover:text-white transition-all duration-500 shadow-[0_20px_50px_rgba(255,255,255,0.1)] hover:shadow-[0_20px_50px_rgba(79,70,229,0.3)] active:scale-95 flex items-center gap-5 overflow-hidden"
+                                className="group/btn relative px-8 py-5 md:px-16 md:py-8 bg-white text-zinc-900 text-lg md:text-2xl font-black rounded-full hover:bg-indigo-600 hover:text-white transition-all duration-500 shadow-[0_20px_50px_rgba(255,255,255,0.1)] hover:shadow-[0_20px_50px_rgba(79,70,229,0.3)] active:scale-95 flex items-center gap-3 md:gap-5 overflow-hidden whitespace-nowrap"
                             >
-                                <span className="relative z-10 flex items-center gap-5">
-                                    Begin Construction <ArrowRight size={24} className="group-hover/btn:translate-x-2 transition-transform duration-500" />
+                                <span className="relative z-10 flex items-center gap-3 md:gap-5">
+                                    Begin Construction <ArrowRight size={20} className="md:w-6 md:h-6 group-hover/btn:translate-x-2 transition-transform duration-500" />
                                 </span>
                             </Link>
                         </div>

@@ -16,6 +16,9 @@ export const metadata: Metadata = {
         "web design services malappuram",
         "digital marketing company in kerala"
     ],
+    alternates: {
+        canonical: '/services',
+    },
 };
 
 export default function ServicesPage() {

@@ -14,6 +14,9 @@ export const metadata: Metadata = {
         "digisinans story",
         "performance marketing agency kerala"
     ],
+    alternates: {
+        canonical: '/about',
+    },
 };
 
 export default function AboutPage() {

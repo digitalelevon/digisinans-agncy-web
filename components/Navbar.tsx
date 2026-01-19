@@ -54,7 +54,7 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className={`fixed top-0 left-0 w-full z-[60] transition-all duration-500 ${scrolled || isOpen ? 'bg-white/80 backdrop-blur-md shadow-[0_2px_20px_-10px_rgba(0,0,0,0.1)] py-4' : 'bg-transparent py-6 md:py-8'}`}>
+        <nav className={`fixed top-0 left-0 w-full transition-all duration-500 ${isOpen ? 'z-[10000]' : 'z-[60]'} ${scrolled || isOpen ? 'bg-white/80 backdrop-blur-md shadow-[0_2px_20px_-10px_rgba(0,0,0,0.1)] py-4' : 'bg-transparent py-6 md:py-8'}`}>
             <div className="container mx-auto px-6 md:px-10 lg:px-12 flex justify-between items-center">
                 <Link href="/" onClick={closeMenu}>
                     <Logo className="!text-xl md:!text-2xl" />
@@ -101,30 +101,50 @@ const Navbar = () => {
 
             {/* Mobile Menu Overlay */}
             {isOpen && (
-                <div className="lg:hidden fixed inset-0 w-full h-[100dvh] bg-white/98 backdrop-blur-2xl z-[100] p-8 flex flex-col animate-in fade-in slide-in-from-right-full duration-500">
-                    <div className="flex justify-between items-center mb-16">
+                <div className="lg:hidden fixed inset-0 w-full h-[100dvh] bg-white/95 backdrop-blur-[20px] z-[9999] flex flex-col overflow-hidden animate-in fade-in duration-300">
+                    {/* Header bar in overlay to match Navbar height/spacing */}
+                    <div className="container mx-auto px-6 md:px-10 py-6 flex justify-between items-center">
                         <Link href="/" onClick={closeMenu}>
-                            <Logo className="!text-2xl" />
+                            <Logo className="!text-xl md:!text-2xl" />
                         </Link>
-                        <button onClick={closeMenu} className="p-3 bg-zinc-100/80 text-zinc-900 rounded-full active:scale-90 transition-transform"><X size={28} /></button>
+                        <button
+                            onClick={closeMenu}
+                            className="p-3 bg-zinc-900 text-white rounded-full active:scale-90 transition-all shadow-xl z-[10000]"
+                            aria-label="Close Menu"
+                        >
+                            <X size={26} strokeWidth={2.5} />
+                        </button>
                     </div>
-                    <div className="flex flex-col gap-6 flex-grow">
-                        {navLinks.map((item, idx) => (
+
+                    <div className="container mx-auto flex flex-col px-8 md:px-10 pt-8 pb-12 flex-grow overflow-y-auto">
+                        <div className="flex flex-col gap-4">
+                            {navLinks.map((item, idx) => {
+                                const isActive = pathname === item.path || (item.path !== '/' && item.path !== '/#' && pathname?.startsWith(item.path));
+                                return (
+                                    <Link
+                                        key={item.name}
+                                        href={item.path}
+                                        onClick={closeMenu}
+                                        className={`text-5xl sm:text-6xl font-black tracking-tighter transition-all duration-300 animate-in slide-in-from-bottom-8 fill-mode-both ${isActive ? 'text-indigo-600' : 'text-zinc-900 hover:text-indigo-600'}`}
+                                        style={{ animationDelay: `${(idx + 1) * 80}ms` }}
+                                    >
+                                        {item.name}
+                                    </Link>
+                                );
+                            })}
+                        </div>
+
+                        <div className="mt-auto pt-12 space-y-8">
                             <Link
-                                key={item.name}
-                                href={item.path}
+                                href="/contact"
                                 onClick={closeMenu}
-                                className="text-5xl font-black tracking-tighter text-zinc-900 hover:text-indigo-600 transition-colors animate-in slide-in-from-right-12 duration-500 fill-mode-both"
-                                style={{ animationDelay: `${(idx + 1) * 70}ms` }}
+                                className="block bg-zinc-900 text-white text-center py-6 rounded-[2.5rem] font-black text-xl shadow-2xl active:scale-95 transition-all animate-in slide-in-from-bottom-12"
+                                style={{ animationDelay: '500ms' }}
                             >
-                                {item.name}
-                            </Link>
-                        ))}
-                        <div className="mt-auto space-y-10 pb-8">
-                            <Link href="/contact" onClick={closeMenu} className="block bg-zinc-900 text-white text-center py-6 rounded-[2rem] font-black text-xl shadow-xl active:scale-95 transition-transform">
                                 Book Consultation
                             </Link>
-                            <div className="flex justify-center gap-12 text-zinc-400">
+
+                            <div className="flex justify-center gap-12 text-zinc-400 animate-in fade-in duration-700 delay-700">
                                 <a href="https://www.linkedin.com/company/digisinans" target="_blank" rel="noopener" className="text-[10px] font-black uppercase tracking-[0.3em] hover:text-indigo-600 transition-colors">LinkedIn</a>
                                 <a href="https://www.instagram.com/digisinans" target="_blank" rel="noopener" className="text-[10px] font-black uppercase tracking-[0.3em] hover:text-indigo-600 transition-colors">Instagram</a>
                             </div>

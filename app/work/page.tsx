@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     title: "Case Studies | ROI-Driven Digital Marketing Results | DIGISINANS",
     description: "Explore how we generate massive ROI through SEO and performance marketing. Detailed case studies of digital transformations for elite global brands.",
     keywords: ["digital marketing case studies india", "seo results kerala", "branding success stories", "performance marketing portfolio"],
+    alternates: {
+        canonical: '/work',
+    },
 };
 
 export default async function WorkPage() {

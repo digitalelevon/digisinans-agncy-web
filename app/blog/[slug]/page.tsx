@@ -24,11 +24,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
         title: `${post.title} | DIGISINANS`,
         description: post.excerpt || `Read our latest insight about ${post.title}`,
+        alternates: {
+            canonical: `/blog/${slug}`,
+        },
         openGraph: {
             title: post.title,
             description: post.excerpt || '',
             images: post.cover_image ? [{ url: post.cover_image }] : [],
             type: 'article',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: post.title,
+            description: post.excerpt || '',
+            images: post.cover_image ? [post.cover_image] : [],
         },
     };
 }

@@ -22,7 +22,7 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://digisinans.com'),
+    metadataBase: new URL('https://digisinans.in'),
     title: "Digisinans | Best AI Integrated Digital Marketing Agency in Malappuram, Kerala",
     description: "Digisinans is the Best AI Integrated Digital Marketing Agency in Malappuram, Kerala. We scale global brands with elite SEO, branding, and AI-driven performance marketing strategies.",
     keywords: [
@@ -33,13 +33,22 @@ export const metadata: Metadata = {
         "SEO Expert Malappuram",
         "Digisinans"
     ],
+    alternates: {
+        canonical: '/',
+    },
     openGraph: {
         title: "Digisinans | Best AI Integrated Digital Marketing Agency in Malappuram",
         description: "Scaling global brands with AI-driven precision and high-end design. The best digital partner in Kerala.",
-        url: "https://digisinans.com",
+        url: "https://digisinans.in",
         siteName: "Digisinans",
         locale: "en_US",
         type: "website",
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: "Digisinans | Best AI Integrated Digital Marketing Agency in Malappuram",
+        description: "Scaling global brands with AI-driven precision and high-end design. The best digital partner in Kerala.",
+        images: ['/og-image.jpg'],
     },
     icons: {
         icon: '/favicon.png',
