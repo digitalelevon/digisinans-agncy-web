@@ -129,24 +129,28 @@ export default function GeminiChat() {
             <div className={`fixed inset-0 sm:inset-auto sm:bottom-24 sm:right-6 z-[10001] w-full sm:w-[400px] h-[100dvh] sm:h-[600px] bg-white sm:bg-white/95 sm:backdrop-blur-xl sm:border sm:border-zinc-200 sm:rounded-[2.5rem] sm:shadow-2xl flex flex-col overflow-hidden transition-all duration-500 origin-bottom-right ${isOpen ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-10 opacity-0 scale-95 pointer-events-none'
                 }`}>
 
-                {/* Header */}
-                <header className="shrink-0 px-6 sm:px-8 py-5 sm:py-6 bg-blue-600 text-white flex items-center justify-between pt-[env(safe-area-inset-top,20px)] sm:pt-6">
-                    <div>
-                        <div className="flex items-center gap-2 mb-1">
-                            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                            <h3 className="text-sm font-black uppercase tracking-widest">Growth Strategist</h3>
+                {/* Header - Sticky at the top */}
+                <header className="sticky top-0 z-[60] shrink-0 px-6 sm:px-8 py-4 sm:py-6 bg-blue-600 text-white flex items-center justify-between pt-[max(1.25rem,env(safe-area-inset-top))] sm:pt-6 shadow-md shadow-blue-900/10">
+                    <div className="flex items-center gap-3">
+                        <div className="relative">
+                            <span className="w-2.5 h-2.5 rounded-full bg-green-400 absolute -top-0.5 -right-0.5 border-2 border-blue-600 animate-pulse" />
+                            <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                                <Bot size={22} className="text-white" />
+                            </div>
                         </div>
-                        <p className="text-[10px] font-bold text-blue-100 uppercase tracking-tight">DIGISINANS Intelligence Hub</p>
+                        <div>
+                            <h3 className="text-[13px] font-black uppercase tracking-widest leading-none mb-1">Growth Strategist</h3>
+                            <p className="text-[9px] font-bold text-blue-100 uppercase tracking-tight opacity-80">Intelligence Hub</p>
+                        </div>
                     </div>
-                    {/* Explicit Close for Mobile */}
+                    {/* Explicit Close for Mobile - High Visibility */}
                     <button
                         onClick={() => setIsOpen(false)}
-                        className="sm:hidden p-2 hover:bg-white/10 rounded-full transition-colors"
+                        className="sm:hidden p-3 bg-white/10 hover:bg-white/20 rounded-2xl transition-all active:scale-90 flex items-center justify-center"
                         aria-label="Close Chat"
                     >
-                        <X size={24} />
+                        <X size={24} strokeWidth={3} />
                     </button>
-                    {/* Minimize toggle for desktop is implied by the main button, which we keep clickable if visible */}
                 </header>
 
                 {/* Messages Area - Scrollable */}
