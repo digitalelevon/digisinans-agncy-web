@@ -129,8 +129,8 @@ export default function GeminiChat() {
             <div className={`fixed inset-0 sm:inset-auto sm:bottom-24 sm:right-6 z-[10001] w-full sm:w-[400px] h-[100dvh] sm:h-[600px] bg-white sm:bg-white/95 sm:backdrop-blur-xl sm:border sm:border-zinc-200 sm:rounded-[2.5rem] sm:shadow-2xl flex flex-col overflow-hidden transition-all duration-500 origin-bottom-right ${isOpen ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-10 opacity-0 scale-95 pointer-events-none'
                 }`}>
 
-                {/* Header - Sticky at the top */}
-                <header className="sticky top-0 z-[60] shrink-0 px-6 sm:px-8 py-4 sm:py-6 bg-blue-600 text-white flex items-center justify-between pt-[max(1.25rem,env(safe-area-inset-top))] sm:pt-6 shadow-md shadow-blue-900/10">
+                {/* Header - Fixed at Top via Flex */}
+                <header className="relative shrink-0 z-[60] px-6 sm:px-8 py-4 sm:py-6 bg-blue-600 text-white flex items-center justify-between pt-[max(1.25rem,env(safe-area-inset-top))] sm:pt-6 shadow-md shadow-blue-900/10">
                     <div className="flex items-center gap-3">
                         <div className="relative">
                             <span className="w-2.5 h-2.5 rounded-full bg-green-400 absolute -top-0.5 -right-0.5 border-2 border-blue-600 animate-pulse" />
@@ -189,8 +189,8 @@ export default function GeminiChat() {
                     <div ref={messagesEndRef} />
                 </div>
 
-                {/* Input Area - Sticky at Bottom */}
-                <div className="sticky bottom-0 shrink-0 p-4 sm:p-6 bg-white border-t border-zinc-100 pb-[env(safe-area-inset-bottom)] sm:pb-6">
+                {/* Input Area - Fixed at Bottom via Flex */}
+                <div className="relative shrink-0 p-4 sm:p-6 bg-white border-t border-zinc-100 pb-[max(1rem,env(safe-area-inset-bottom))] sm:pb-6">
                     <form onSubmit={handleSendMessage} className="relative flex items-center gap-2 sm:gap-3">
                         <input
                             type="text"
