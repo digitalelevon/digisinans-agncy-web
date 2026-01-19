@@ -154,13 +154,13 @@ export default function GeminiChat() {
                 </header>
 
                 {/* Messages Area - Scrollable Flex-1 */}
-                <div className="flex-1 overflow-y-auto overscroll-contain p-6 space-y-4 custom-scrollbar bg-zinc-50/50 relative">
+                <div className="flex-1 overflow-y-auto overscroll-contain p-4 sm:p-6 space-y-6 custom-scrollbar bg-zinc-50/50 relative">
                     {messages.length === 0 && (
-                        <div className="text-center py-12 px-8">
-                            <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-5 text-blue-600 shadow-sm">
-                                <Bot size={28} />
+                        <div className="text-center py-12 px-8 animate-in fade-in zoom-in-95 duration-500">
+                            <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-blue-600 shadow-sm ring-4 ring-blue-50/50">
+                                <Bot size={32} />
                             </div>
-                            <h4 className="text-zinc-900 font-black text-sm uppercase tracking-tight mb-2">Tactical Bot Online</h4>
+                            <h4 className="text-zinc-900 font-black text-sm uppercase tracking-tight mb-3">Tactical Bot Online</h4>
                             <p className="text-zinc-500 text-xs font-medium leading-relaxed max-w-[240px] mx-auto">
                                 Our strategic AI is ready to analyze your market position. Ask about SEO, Performance, or Branding.
                             </p>
@@ -168,10 +168,16 @@ export default function GeminiChat() {
                     )}
 
                     {messages.map((msg, i) => (
-                        <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-in slide-in-from-bottom-2 duration-300`}>
-                            <div className={`max-w-[85%] px-5 py-3.5 rounded-2xl text-[13px] sm:text-sm font-medium leading-relaxed ${msg.role === 'user'
+                        <div key={i} className={`flex gap-3 ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-in slide-in-from-bottom-2 duration-300`}>
+                            {msg.role === 'model' && (
+                                <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center shrink-0 border border-blue-200 mt-1">
+                                    <Bot size={14} className="text-blue-600" />
+                                </div>
+                            )}
+
+                            <div className={`max-w-[75%] px-5 py-3.5 rounded-2xl text-[13px] sm:text-sm font-medium leading-relaxed shadow-sm ${msg.role === 'user'
                                 ? 'bg-zinc-900 text-white rounded-br-none shadow-xl'
-                                : 'bg-white text-zinc-600 border border-zinc-100 rounded-bl-none shadow-sm'
+                                : 'bg-white text-zinc-600 border border-zinc-100 rounded-bl-none'
                                 }`}>
                                 {msg.text}
                             </div>
@@ -179,10 +185,14 @@ export default function GeminiChat() {
                     ))}
 
                     {loading && (
-                        <div className="flex justify-start">
-                            <div className="bg-white px-5 py-3.5 rounded-2xl rounded-bl-none border border-zinc-100 shadow-sm flex items-center gap-3">
-                                <Loader2 size={16} className="text-blue-600 animate-spin" />
-                                <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Thinking...</span>
+                        <div className="flex gap-3 justify-start animate-pulse">
+                            <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center shrink-0 border border-blue-200 mt-1">
+                                <Bot size={14} className="text-blue-600" />
+                            </div>
+                            <div className="bg-white px-5 py-4 rounded-2xl rounded-bl-none border border-zinc-100 shadow-sm flex items-center gap-1.5">
+                                <span className="w-1.5 h-1.5 bg-zinc-400 rounded-full animate-[bounce_1s_infinite_0ms]" />
+                                <span className="w-1.5 h-1.5 bg-zinc-400 rounded-full animate-[bounce_1s_infinite_200ms]" />
+                                <span className="w-1.5 h-1.5 bg-zinc-400 rounded-full animate-[bounce_1s_infinite_400ms]" />
                             </div>
                         </div>
                     )}
