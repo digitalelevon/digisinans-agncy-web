@@ -9,12 +9,8 @@ import {
     TrendingUp,
     ArrowUpRight,
     ArrowDownRight,
-    Users,
     Zap,
-    Clock,
     ChevronRight,
-    Search,
-    Bell,
     Bot
 } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
@@ -79,230 +75,206 @@ const OverviewManager = ({ onTabChange }: { onTabChange: (tab: 'overview' | 'lea
 
     const cards = [
         {
-            label: 'Active Inquiries',
+            label: 'Total Inquiries',
             count: stats.leads,
-            icon: <MessageSquare size={22} />,
+            icon: <MessageSquare size={20} />,
             trend: '+12%',
             trendUp: true,
-            gradient: 'from-indigo-600 to-blue-600'
+            color: 'text-indigo-600',
+            bg: 'bg-indigo-50'
         },
         {
-            label: 'Growth Insights',
+            label: 'Blog Posts',
             count: stats.blogs,
-            icon: <FileText size={22} />,
+            icon: <FileText size={20} />,
             trend: '+2',
             trendUp: true,
-            gradient: 'from-blue-600 to-cyan-500'
+            color: 'text-blue-600',
+            bg: 'bg-blue-50'
         },
         {
-            label: 'Success Stories',
+            label: 'Case Studies',
             count: stats.work,
-            icon: <Briefcase size={22} />,
+            icon: <Briefcase size={20} />,
             trend: '+1',
             trendUp: true,
-            gradient: 'from-violet-600 to-indigo-600'
+            color: 'text-violet-600',
+            bg: 'bg-violet-50'
         },
         {
-            label: 'Market Reach',
+            label: 'Total Views',
             count: '94.2k',
-            icon: <TrendingUp size={22} />,
+            icon: <TrendingUp size={20} />,
             trend: '+8%',
             trendUp: true,
-            gradient: 'from-emerald-600 to-teal-500'
+            color: 'text-emerald-600',
+            bg: 'bg-emerald-50'
         }
     ];
 
     if (loading) {
         return (
-            <div className="space-y-10 animate-pulse">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="space-y-6 animate-pulse">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {[1, 2, 3, 4].map(i => (
-                        <div key={i} className="h-44 bg-white rounded-[2.5rem] border border-zinc-100" />
+                        <div key={i} className="h-32 bg-white rounded-2xl border border-zinc-200" />
                     ))}
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <div className="lg:col-span-2 h-96 bg-white rounded-[3rem]" />
-                    <div className="h-96 bg-white rounded-[3rem]" />
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div className="lg:col-span-2 h-96 bg-white rounded-2xl border border-zinc-200" />
+                    <div className="h-96 bg-white rounded-2xl border border-zinc-200" />
                 </div>
             </div>
         );
     }
 
     return (
-        <div className="space-y-10 animate-in fade-in duration-500">
+        <div className="space-y-8 animate-in fade-in duration-500">
             {/* Greeting */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6">
-                <div>
-                    <h2 className="text-3xl md:text-4xl font-black text-zinc-900 tracking-tighter uppercase">
-                        Strategic <span className="italic font-serif text-indigo-600">Command</span> Center.
-                    </h2>
-                    <p className="text-xs md:text-sm font-medium text-zinc-500">Monitoring digital performance and strategic deployment.</p>
-                </div>
-                <div className="flex items-center gap-3">
-                    <div className="px-4 py-2 bg-indigo-50 text-indigo-600 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest flex items-center gap-2 border border-indigo-100 w-fit">
-                        <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse" />
-                        System Online
-                    </div>
-                </div>
+            <div>
+                <h2 className="text-2xl font-bold text-zinc-900 tracking-tight">Overview</h2>
+                <p className="text-sm text-zinc-500 mt-1">Welcome back. Here&apos;s what&apos;s happening with your site today.</p>
             </div>
 
             {/* Stats Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {cards.map((card, idx) => (
-                    <div key={idx} className="group bg-white p-8 rounded-[2.5rem] border border-zinc-200/60 hover:border-white transition-all duration-500 relative overflow-hidden shadow-sm hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)]">
-                        <div className={`absolute top-0 right-0 w-32 h-32 bg-zinc-50 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 group-hover:opacity-100 opacity-0 transition-opacity duration-700`} />
-
-                        <div className="relative z-10 flex flex-col h-full">
-                            <div className="flex items-center justify-between mb-10">
-                                <div className={`w-14 h-14 bg-gradient-to-br ${card.gradient} rounded-2xl flex items-center justify-center text-white shadow-xl shadow-indigo-100 group-hover:scale-110 transition-transform duration-500`}>
-                                    {card.icon}
-                                </div>
-                                <div className={`px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest flex items-center gap-1 ${card.trendUp ? 'bg-emerald-50 text-emerald-600' : 'bg-rose-50 text-rose-600'}`}>
-                                    {card.trendUp ? <ArrowUpRight size={12} /> : <ArrowDownRight size={12} />}
-                                    {card.trend}
-                                </div>
+                    <div key={idx} className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm hover:shadow-md transition-shadow">
+                        <div className="flex items-center justify-between mb-4">
+                            <div className={`w-10 h-10 ${card.bg} rounded-xl flex items-center justify-center ${card.color}`}>
+                                {card.icon}
                             </div>
-
-                            <div>
-                                <p className="text-[10px] font-black uppercase tracking-[0.35em] text-zinc-400 mb-2">{card.label}</p>
-                                <h3 className="text-4xl lg:text-5xl font-black text-zinc-900 tracking-tighter italic font-serif group-hover:text-indigo-600 transition-colors">
-                                    {card.count}
-                                </h3>
+                            <div className={`flex items-center gap-1 text-xs font-medium px-2 py-1 rounded-full ${card.trendUp ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'}`}>
+                                {card.trendUp ? <ArrowUpRight size={12} /> : <ArrowDownRight size={12} />}
+                                {card.trend}
                             </div>
+                        </div>
+                        <div>
+                            <h3 className="text-2xl font-bold text-zinc-900 tracking-tight">{card.count}</h3>
+                            <p className="text-sm font-medium text-zinc-500 mt-1">{card.label}</p>
                         </div>
                     </div>
                 ))}
             </div>
 
             {/* Main Area */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-10">
-                {/* Recent Inbound Activity */}
-                <div className="lg:col-span-2 space-y-8">
-                    <div className="bg-white p-8 md:p-12 rounded-[3.5rem] border border-zinc-200/60 shadow-sm overflow-hidden h-full flex flex-col">
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-16">
-                            <div>
-                                <h4 className="text-2xl font-black text-zinc-900 tracking-tighter uppercase italic">Strategic Feed</h4>
-                                <p className="text-xs md:text-sm font-medium text-zinc-500">Latest inbound lead transmissions.</p>
-                            </div>
-                            <button
-                                onClick={() => onTabChange('leads')}
-                                className="px-6 py-3 bg-zinc-100 hover:bg-zinc-900 hover:text-white rounded-xl text-[10px] font-black uppercase tracking-widest transition-all"
-                            >
-                                View All Intelligence Hub
-                            </button>
-                        </div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {/* Recent Activity */}
+                <div className="lg:col-span-2 bg-white rounded-2xl border border-zinc-200 shadow-sm overflow-hidden flex flex-col">
+                    <div className="p-6 border-b border-zinc-100 flex items-center justify-between">
+                        <h4 className="font-semibold text-zinc-900">Recent Activity</h4>
+                        <button
+                            onClick={() => onTabChange('leads')}
+                            className="text-sm font-medium text-indigo-600 hover:text-indigo-700 transition-colors"
+                        >
+                            View All
+                        </button>
+                    </div>
 
-                        <div className="space-y-6 flex-grow">
-                            {stats.recentLeads.length > 0 ? stats.recentLeads.map((lead, idx) => {
-                                const getTimeAgo = (date: string) => {
-                                    const seconds = Math.floor((new Date().getTime() - new Date(date).getTime()) / 1000);
-                                    if (seconds < 60) return 'Just Now';
-                                    const minutes = Math.floor(seconds / 60);
-                                    if (minutes < 60) return `${minutes}m ago`;
-                                    const hours = Math.floor(minutes / 60);
-                                    if (hours < 24) return `${hours}h ago`;
-                                    return new Date(date).toLocaleDateString();
-                                };
+                    <div className="divide-y divide-zinc-50">
+                        {stats.recentLeads.length > 0 ? stats.recentLeads.map((lead) => {
+                            const getTimeAgo = (date: string) => {
+                                const seconds = Math.floor((new Date().getTime() - new Date(date).getTime()) / 1000);
+                                if (seconds < 60) return 'Just Now';
+                                const minutes = Math.floor(seconds / 60);
+                                if (minutes < 60) return `${minutes}m ago`;
+                                const hours = Math.floor(minutes / 60);
+                                if (hours < 24) return `${hours}h ago`;
+                                return new Date(date).toLocaleDateString();
+                            };
 
-                                return (
-                                    <div
-                                        key={lead.id}
-                                        onClick={() => onTabChange(lead.source === 'chatbot' ? 'chatbot' : 'leads' as any)}
-                                        className="flex items-center gap-6 p-6 rounded-[2.5rem] hover:bg-zinc-50 border border-transparent hover:border-zinc-100 transition-all group cursor-pointer relative overflow-hidden"
-                                    >
-                                        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-white shrink-0 shadow-lg transition-all duration-700 group-hover:scale-110 group-hover:rotate-6 ${lead.source === 'chatbot' ? 'bg-indigo-600 shadow-indigo-100' : 'bg-zinc-900 shadow-zinc-100'
-                                            }`}>
-                                            {lead.source === 'chatbot' ? <Bot size={20} /> : (lead.name?.[0]?.toUpperCase() || 'L')}
+                            return (
+                                <div
+                                    key={lead.id}
+                                    onClick={() => onTabChange(lead.source === 'chatbot' ? 'chatbot' : 'leads' as any)}
+                                    className="p-4 hover:bg-zinc-50 transition-colors cursor-pointer flex items-center gap-4 group"
+                                >
+                                    <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold shrink-0 ${lead.source === 'chatbot' ? 'bg-indigo-100 text-indigo-700' : 'bg-zinc-100 text-zinc-700'
+                                        }`}>
+                                        {lead.source === 'chatbot' ? <Bot size={18} /> : (lead.name?.[0]?.toUpperCase() || 'U')}
+                                    </div>
+                                    <div className="flex-grow min-w-0">
+                                        <div className="flex items-center justify-between mb-1">
+                                            <h5 className="text-sm font-semibold text-zinc-900 truncate">{lead.name || 'Unknown User'}</h5>
+                                            <span className="text-xs text-zinc-400">{getTimeAgo(lead.created_at)}</span>
                                         </div>
-                                        <div className="flex-grow min-w-0">
-                                            <div className="flex items-center justify-between mb-2 gap-4">
-                                                <div className="flex items-center gap-3 min-w-0">
-                                                    <h5 className="font-black text-zinc-900 text-sm md:text-lg truncate tracking-tight group-hover:text-indigo-600 transition-colors uppercase italic font-serif ">{lead.name || 'Anonymous Strategist'}</h5>
-                                                    <span className={`px-2 py-1 rounded-lg text-[8px] font-black uppercase tracking-[0.2em] shrink-0 border transition-colors ${lead.source === 'chatbot' ? 'bg-indigo-50 text-indigo-600 border-indigo-100 group-hover:bg-indigo-600 group-hover:text-white' : 'bg-zinc-100 text-zinc-500 border-zinc-200 group-hover:bg-zinc-900 group-hover:text-white'
-                                                        }`}>
-                                                        {lead.source}
-                                                    </span>
-                                                </div>
-                                                <span className="text-[10px] font-black uppercase tracking-widest text-zinc-300 group-hover:text-zinc-500 shrink-0 tabular-nums transition-colors">{getTimeAgo(lead.created_at)}</span>
-                                            </div>
-                                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs font-medium text-zinc-400 leading-relaxed min-w-0">
-                                                <span className="truncate text-zinc-500 font-bold uppercase tracking-widest text-[9px] flex items-center gap-2">
-                                                    <div className="w-1 h-1 rounded-full bg-zinc-300" />
-                                                    {lead.email || lead.phone || 'Awaiting Contact Vector'}
-                                                </span>
-                                                {lead.service_type && (
-                                                    <span className="px-3 py-1 bg-white border border-zinc-100 rounded-full text-[9px] font-black uppercase tracking-widest text-indigo-600 shrink-0 shadow-sm w-fit">{lead.service_type}</span>
-                                                )}
-                                            </div>
-                                        </div>
-                                        <div className="w-10 h-10 flex items-center justify-center bg-zinc-50 group-hover:bg-zinc-900 rounded-xl transition-all shrink-0">
-                                            <ChevronRight className="text-zinc-300 group-hover:text-white transition-colors" size={20} />
+                                        <div className="flex items-center gap-2 text-xs text-zinc-500">
+                                            <span className={`px-1.5 py-0.5 rounded-md text-[10px] uppercase font-bold tracking-wider ${lead.source === 'chatbot' ? 'bg-indigo-50 text-indigo-600' : 'bg-zinc-100 text-zinc-600'
+                                                }`}>
+                                                {lead.source === 'chatbot' ? 'AI Lead' : 'Form Lead'}
+                                            </span>
+                                            {lead.service_type && (
+                                                <>
+                                                    <span className="w-1 h-1 rounded-full bg-zinc-300" />
+                                                    <span>{lead.service_type}</span>
+                                                </>
+                                            )}
                                         </div>
                                     </div>
-                                );
-                            }) : (
-                                <div className="h-full flex flex-col items-center justify-center text-center py-20 grayscale opacity-40">
-                                    <MessageSquare size={64} className="text-zinc-200 mb-8" />
-                                    <p className="text-zinc-400 font-black uppercase tracking-[0.3em] text-xs">Awaiting new transmissions.</p>
+                                    <ChevronRight size={16} className="text-zinc-300 group-hover:text-zinc-400" />
                                 </div>
-                            )}
-                        </div>
+                            );
+                        }) : (
+                            <div className="py-20 flex flex-col items-center justify-center text-center gap-2">
+                                <div className="w-12 h-12 bg-zinc-50 rounded-full flex items-center justify-center text-zinc-300">
+                                    <MessageSquare size={20} />
+                                </div>
+                                <p className="text-sm text-zinc-500 font-medium">No recent activity.</p>
+                            </div>
+                        )}
                     </div>
                 </div>
 
-                {/* Performance Highlights Sidebar */}
-                <div className="space-y-6 md:space-y-8">
-                    {/* Traffic Visualization (CSS Mockup) */}
-                    <div className="bg-zinc-900 p-8 md:p-10 rounded-[2.5rem] md:rounded-[3.5rem] text-white relative overflow-hidden group">
-                        <div className="absolute top-0 right-0 w-40 h-40 bg-indigo-600/20 blur-[80px]" />
-                        <h4 className="text-lg md:text-xl font-black uppercase tracking-widest mb-8 md:mb-10 italic">Reach Growth</h4>
-
-                        <div className="flex items-end justify-between h-32 md:h-40 gap-2 md:gap-3 mb-8 md:mb-10">
-                            {[40, 70, 45, 90, 65, 80, 55].map((h, i) => (
-                                <div key={i} className="flex-grow group/bar relative">
-                                    <div
-                                        className="w-full bg-white/10 rounded-t-lg md:rounded-t-xl group-hover/bar:bg-indigo-500 transition-all duration-500"
-                                        style={{ height: `${h}%` }}
-                                    >
-                                        <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-white text-zinc-900 p-2 rounded-lg text-[10px] font-black opacity-0 group-hover/bar:opacity-100 transition-opacity whitespace-nowrap z-10">
-                                            {h}k
-                                        </div>
+                {/* Sidebar Stats */}
+                <div className="space-y-6">
+                    {/* Analytics Widget */}
+                    <div className="bg-zinc-900 p-6 rounded-2xl text-white shadow-sm relative overflow-hidden">
+                        <div className="relative z-10">
+                            <h4 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-6">Weekly Visits</h4>
+                            <div className="flex items-end justify-between h-32 gap-2 mb-6">
+                                {[40, 70, 45, 90, 65, 80, 55].map((h, i) => (
+                                    <div key={i} className="flex-grow relative group cursor-pointer">
+                                        <div
+                                            className="w-full bg-white/20 rounded-sm hover:bg-indigo-500 transition-colors duration-300"
+                                            style={{ height: `${h}%` }}
+                                        />
                                     </div>
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className="flex items-center justify-between pt-6 md:pt-8 border-t border-white/5">
-                            <div>
-                                <p className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-1">Impressions</p>
-                                <p className="text-xl md:text-2xl font-black tracking-tighter">842,000</p>
+                                ))}
                             </div>
-                            <div className="text-right">
-                                <p className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-emerald-400 mb-1">+14.2%</p>
-                                <p className="text-[10px] md:text-sm font-medium text-zinc-500 italic">vs last month</p>
+                            <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                                <div>
+                                    <p className="text-2xl font-bold tracking-tight">842k</p>
+                                    <p className="text-xs text-zinc-500">Total impressions</p>
+                                </div>
+                                <div className="text-right">
+                                    <p className="text-sm font-bold text-emerald-400">+14.2%</p>
+                                    <p className="text-xs text-zinc-500">vs last week</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* Quick Access Actions */}
-                    <div className="bg-white p-8 md:p-10 rounded-[2.5rem] md:rounded-[3.5rem] border border-zinc-200">
-                        <h4 className="text-lg md:text-xl font-black uppercase tracking-tighter italic mb-6 md:mb-8">Quick Tactics</h4>
-                        <div className="space-y-3 md:space-y-4">
+                    {/* Quick Access */}
+                    <div className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm">
+                        <h4 className="font-semibold text-zinc-900 mb-4">Quick Actions</h4>
+                        <div className="space-y-2">
                             {[
-                                { label: 'Publish Insight', icon: <FileText size={18} />, color: 'indigo', tab: 'blog' },
-                                { label: 'Deploy Case Study', icon: <Briefcase size={18} />, color: 'emerald', tab: 'work' },
-                                { label: 'Inbound Audit', icon: <Zap size={18} />, color: 'orange', tab: 'leads' }
+                                { label: 'Write Blog Post', icon: <FileText size={16} />, color: 'text-blue-600', bg: 'bg-blue-50', tab: 'blog' },
+                                { label: 'Add Case Study', icon: <Briefcase size={16} />, color: 'text-violet-600', bg: 'bg-violet-50', tab: 'work' },
+                                { label: 'Check Settings', icon: <Zap size={16} />, color: 'text-orange-600', bg: 'bg-orange-50', tab: 'overview' }
                             ].map((action, i) => (
                                 <button
                                     key={i}
                                     onClick={() => onTabChange(action.tab as any)}
-                                    className="w-full flex items-center justify-between p-4 md:p-5 bg-zinc-50 hover:bg-zinc-900 hover:text-white rounded-xl md:rounded-2xl transition-all group"
+                                    className="w-full flex items-center justify-between p-3 hover:bg-zinc-50 rounded-xl transition-colors group text-left"
                                 >
-                                    <div className="flex items-center gap-3 md:gap-4">
-                                        <div className={`text-${action.color}-600 group-hover:text-white transition-colors`}>{action.icon}</div>
-                                        <span className="text-[10px] md:text-xs font-black uppercase tracking-widest">{action.label}</span>
+                                    <div className="flex items-center gap-3">
+                                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${action.bg} ${action.color}`}>
+                                            {action.icon}
+                                        </div>
+                                        <span className="text-sm font-medium text-zinc-700 group-hover:text-zinc-900">{action.label}</span>
                                     </div>
-                                    <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-all translate-x-1" />
+                                    <ChevronRight size={14} className="text-zinc-300 group-hover:text-zinc-400" />
                                 </button>
                             ))}
                         </div>
