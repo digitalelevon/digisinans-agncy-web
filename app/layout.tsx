@@ -50,9 +50,6 @@ export const metadata: Metadata = {
         description: "Scaling global brands with AI-driven precision and high-end design. The best digital partner in Kerala.",
         images: ['/og-image.jpg'],
     },
-    icons: {
-        icon: '/favicon.png',
-    },
 };
 
 
