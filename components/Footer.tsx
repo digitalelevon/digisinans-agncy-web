@@ -53,9 +53,9 @@ const Footer = () => {
                         <div className="flex gap-3">
                             {[
                                 { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/company/digisinans", label: "Digisinans LinkedIn" },
-                                { icon: <Instagram size={18} />, href: "https://www.instagram.com/digisinans", label: "Digisinans Instagram" },
-                                { icon: <Facebook size={18} />, href: "https://www.facebook.com/digisinans", label: "Digisinans Facebook" },
-                                { icon: <Twitter size={18} />, href: "https://twitter.com/digisinans", label: "Digisinans Twitter" }
+                                { icon: <Instagram size={18} />, href: "https://www.instagram.com/digisinans?igsh=N3g0Z3ltN21qaDkw", label: "Digisinans Instagram" },
+                                { icon: <Facebook size={18} />, href: "https://www.facebook.com/share/1JtQcekX9J/", label: "Digisinans Facebook" },
+                                { icon: <Twitter size={18} />, href: "https://x.com/DIGISINANS", label: "Digisinans X" }
                             ].map((social, idx) => (
                                 <a
                                     key={idx}

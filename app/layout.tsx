@@ -49,6 +49,8 @@ export const metadata: Metadata = {
         title: "Digisinans | Best AI Integrated Digital Marketing Agency in Malappuram",
         description: "Scaling global brands with AI-driven precision and high-end design. The best digital partner in Kerala.",
         images: ['/og-image.jpg'],
+        site: '@DIGISINANS',
+        creator: '@DIGISINANS',
     },
 };
 
@@ -112,8 +114,9 @@ export default function RootLayout({
                             },
                             "sameAs": [
                                 "https://www.linkedin.com/company/digisinans",
-                                "https://www.instagram.com/digisinans",
-                                "https://www.facebook.com/digisinans"
+                                "https://www.instagram.com/digisinans?igsh=N3g0Z3ltN21qaDkw",
+                                "https://www.facebook.com/share/1JtQcekX9J/",
+                                "https://x.com/DIGISINANS"
                             ],
                             "description": "DIGISINANS is the best digital marketing agency in Kerala, specializing in SEO, Performance Marketing, Social Media Marketing, and Branding.",
                             "areaServed": {

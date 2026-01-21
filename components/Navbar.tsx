@@ -144,9 +144,11 @@ const Navbar = () => {
                                 Book Consultation
                             </Link>
 
-                            <div className="flex justify-center gap-12 text-zinc-400 animate-in fade-in duration-700 delay-700">
+                            <div className="flex flex-wrap justify-center gap-8 text-zinc-400 animate-in fade-in duration-700 delay-700">
                                 <a href="https://www.linkedin.com/company/digisinans" target="_blank" rel="noopener" className="text-[10px] font-black uppercase tracking-[0.3em] hover:text-indigo-600 transition-colors">LinkedIn</a>
-                                <a href="https://www.instagram.com/digisinans" target="_blank" rel="noopener" className="text-[10px] font-black uppercase tracking-[0.3em] hover:text-indigo-600 transition-colors">Instagram</a>
+                                <a href="https://www.instagram.com/digisinans?igsh=N3g0Z3ltN21qaDkw" target="_blank" rel="noopener" className="text-[10px] font-black uppercase tracking-[0.3em] hover:text-indigo-600 transition-colors">Instagram</a>
+                                <a href="https://www.facebook.com/share/1JtQcekX9J/" target="_blank" rel="noopener" className="text-[10px] font-black uppercase tracking-[0.3em] hover:text-indigo-600 transition-colors">Facebook</a>
+                                <a href="https://x.com/DIGISINANS" target="_blank" rel="noopener" className="text-[10px] font-black uppercase tracking-[0.3em] hover:text-indigo-600 transition-colors">X</a>
                             </div>
                         </div>
                     </div>
